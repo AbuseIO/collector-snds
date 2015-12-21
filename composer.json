@@ -22,7 +22,8 @@
         "docs": "https://abuse.io/resources/documentation/"
     },
     "require": {
-        "php": ">=5.5.9"
+        "php": ">=5.5.9",
+        "abuseio/collector-common": "dev-master"
     },
     "autoload": {
         "psr-4": {
