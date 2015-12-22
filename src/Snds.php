@@ -5,7 +5,7 @@ namespace AbuseIO\Collectors;
 class Snds extends Collector
 {
     /**
-     * Create a new Abusehub instance
+     * Create a new Microsoft SNDS instance
      */
     public function __construct()
     {
@@ -15,11 +15,14 @@ class Snds extends Collector
 
     /**
      * Parse attachments
-     * @return Array    Returns array with failed or success data
+     * @return array    Returns array with failed or success data
      *                  (See parser-common/src/Parser.php) for more info.
      */
     public function parse()
     {
+        if (strlen(config('main.collectors.snds.collector.key')) < 10) {
+            $this->failed('Invalid SNDS key');
+        }
 
     }
 }
