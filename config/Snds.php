@@ -15,7 +15,10 @@ return [
             'type'      => 'Abuse',
             'enabled'   => true,
             'fields'    => [
-
+                'first_ip',
+                'last_ip',
+                'blocked',
+                'feed',
             ],
         ],
         'Symantec Brightmail' => [
@@ -23,7 +26,10 @@ return [
             'type'      => 'Abuse',
             'enabled'   => true,
             'fields'    => [
-
+                'first_ip',
+                'last_ip',
+                'blocked',
+                'feed',
             ],
         ],
         'SpamHaus SBL/XBL' => [
@@ -31,7 +37,10 @@ return [
             'type'      => 'Abuse',
             'enabled'   => true,
             'fields'    => [
-
+                'first_ip',
+                'last_ip',
+                'blocked',
+                'feed',
             ],
         ],
         'Blocked due to user complaints or other evidence of spamming' => [
@@ -39,7 +48,10 @@ return [
             'type'      => 'Abuse',
             'enabled'   => true,
             'fields'    => [
-
+                'first_ip',
+                'last_ip',
+                'blocked',
+                'feed',
             ],
         ],
     ],
