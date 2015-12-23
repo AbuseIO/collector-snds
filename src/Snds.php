@@ -8,12 +8,23 @@ use SplFileObject;
 
 class Snds extends Collector
 {
+    /*
+     * The API key used for authentitation
+     *
+     * @var string
+     */
     private $key;
 
+    /*
+     * The URL used to collect data
+     *
+     * @var string
+     */
     private $url;
 
     /**
      * Create a new Microsoft SNDS instance
+     *
      */
     public function __construct()
     {
@@ -26,8 +37,9 @@ class Snds extends Collector
 
     /**
      * Parse attachments
+     *
      * @return array    Returns array with failed or success data
-     *                  (See parser-common/src/Parser.php) for more info.
+     *                  (See collector-common/src/Collector.php) for more info.
      */
     public function parse()
     {
