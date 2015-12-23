@@ -2,7 +2,7 @@
 
 return [
     'collector' => [
-        'name'          => 'Snds',
+        'name'          => 'Microsoft SNDS',
         'description'   => 'Collects data from Microsoft SNDS to generate events',
         'enabled'       => true,
         'location'      => 'https://postmaster.live.com/snds/ipStatus.aspx',
@@ -20,6 +20,10 @@ return [
                 'blocked',
                 'feed',
             ],
+            'filters'   => [
+                'first_ip',
+                'last_ip',
+            ]
         ],
         'Symantec Brightmail' => [
             'class'     => 'RBL Listed',
@@ -31,6 +35,10 @@ return [
                 'blocked',
                 'feed',
             ],
+            'filters'   => [
+                'first_ip',
+                'last_ip',
+            ]
         ],
         'SpamHaus SBL/XBL' => [
             'class'     => 'RBL Listed',
@@ -42,6 +50,10 @@ return [
                 'blocked',
                 'feed',
             ],
+            'filters'   => [
+                'first_ip',
+                'last_ip',
+            ]
         ],
         'Blocked due to user complaints or other evidence of spamming' => [
             'class'     => 'SPAM',
@@ -53,6 +65,10 @@ return [
                 'blocked',
                 'feed',
             ],
+            'filters'   => [
+                'first_ip',
+                'last_ip',
+            ]
         ],
     ],
 ];

@@ -83,6 +83,8 @@ class Snds extends Collector
                         $report['timestamp'] = time();
 
                         if ($this->hasRequiredFields($report) === true) {
+                            $report = $this->applyFilters($report);
+
                             $this->events[] = [
                                 'source'        => config("{$this->configBase}.collector.name"),
                                 'ip'            => $report['ip'],
