@@ -109,7 +109,8 @@ class Snds extends Collector
                                 'type'          => config(
                                     "{$this->configBase}.feeds.{$this->feedName}.type"
                                 ),
-                                'timestamp'     => $report['timestamp'],
+                                // This prevents multiple events on the same day. So info blob has a scan time and this a report time
+                                'timestamp'     => strtotime('0:00'),
                                 'information'   => json_encode($report),
                             ];
                         }
