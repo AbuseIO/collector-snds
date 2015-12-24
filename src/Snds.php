@@ -5,6 +5,7 @@ namespace AbuseIO\Collectors;
 use GuzzleHttp;
 use Ddeboer\DataImport\Reader;
 use SplFileObject;
+use ICF;
 
 class Snds extends Collector
 {
@@ -86,12 +87,12 @@ class Snds extends Collector
 
             if ($this->isKnownFeed() && $this->isEnabledFeed()) {
 
-                $firstIP = ip2long($report['first_ip']);
-                $lastIP = ip2long($report['last_ip']);
+                $firstIP = ICF::InetPtoi($report['first_ip']);
+                $lastIP = ICF::InetPtoi($report['last_ip']);
 
                 if (!empty($firstIP) && !empty($lastIP) && $firstIP <= $lastIP) {
                     for ($x = $firstIP; $x <= $lastIP; $x++) {
-                        $report['ip'] = long2ip($x);
+                        $report['ip'] = ICF::inetItop($x);
                         $report['timestamp'] = time();
 
                         if ($this->hasRequiredFields($report) === true) {
