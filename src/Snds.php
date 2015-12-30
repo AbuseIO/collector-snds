@@ -7,6 +7,10 @@ use Ddeboer\DataImport\Reader;
 use SplFileObject;
 use ICF;
 
+/**
+ * Class Snds
+ * @package AbuseIO\Collectors
+ */
 class Snds extends Collector
 {
     /*
@@ -62,13 +66,14 @@ class Snds extends Collector
         $client = new GuzzleHttp\Client();
 
         $res = $client->request(
-            'GET', "{$this->url}?key={$this->key}",
+            'GET',
+            "{$this->url}?key={$this->key}",
             [
                 'http_errors' => false,
                 'save_to' => $tempFile
             ]
         );
-        if($res->getStatusCode() !== 200) {
+        if ($res->getStatusCode() !== 200) {
             return $this->failed("URL collection from {$this->url} resulted in a {$res->getStatusCode()}");
         }
 
@@ -109,7 +114,10 @@ class Snds extends Collector
                                 'type'          => config(
                                     "{$this->configBase}.feeds.{$this->feedName}.type"
                                 ),
-                                // This prevents multiple events on the same day. So info blob has a scan time and this a report time
+                                /*
+                                 * This prevents multiple events on the same day. So info
+                                 * blob has a scan time and this a report time
+                                 */
                                 'timestamp'     => strtotime('0:00'),
                                 'information'   => json_encode($report),
                             ];
