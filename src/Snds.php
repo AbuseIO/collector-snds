@@ -98,7 +98,6 @@ class Snds extends Collector
                 if (!empty($firstIP) && !empty($lastIP) && $firstIP <= $lastIP) {
                     for ($x = $firstIP; $x <= $lastIP; $x++) {
                         $report['ip'] = ICF::inetItop($x);
-                        $report['timestamp'] = time();
 
                         if ($this->hasRequiredFields($report) === true) {
                             $report = $this->applyFilters($report);
