@@ -4,7 +4,7 @@ return [
     'collector' => [
         'name'          => 'Microsoft SNDS',
         'description'   => 'Collects data from Microsoft SNDS to generate events',
-        'enabled'       => true,
+        'enabled'       => false,
         'location'      => 'https://postmaster.live.com/snds/ipStatus.aspx',
         'key'           => '',
     ],
