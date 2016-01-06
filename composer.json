@@ -23,7 +23,7 @@
     },
     "require": {
         "php": ">=5.5.9",
-        "abuseio/collector-common": "dev-master"
+        "abuseio/collector-common": "1.1.*"
     },
     "autoload": {
         "psr-4": {
