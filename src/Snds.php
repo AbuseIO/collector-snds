@@ -2,6 +2,7 @@
 
 namespace AbuseIO\Collectors;
 
+use AbuseIO\Models\Incident;
 use GuzzleHttp;
 use Ddeboer\DataImport\Reader;
 use SplFileObject;
@@ -102,24 +103,26 @@ class Snds extends Collector
                         if ($this->hasRequiredFields($report) === true) {
                             $report = $this->applyFilters($report);
 
-                            $this->events[] = [
-                                'source'        => config("{$this->configBase}.collector.name"),
-                                'ip'            => $report['ip'],
-                                'domain'        => false,
-                                'uri'           => false,
-                                'class'         => config(
-                                    "{$this->configBase}.feeds.{$this->feedName}.class"
-                                ),
-                                'type'          => config(
-                                    "{$this->configBase}.feeds.{$this->feedName}.type"
-                                ),
-                                /*
-                                 * This prevents multiple events on the same day. So info
-                                 * blob has a scan time and this a report time
-                                 */
-                                'timestamp'     => strtotime('0:00'),
-                                'information'   => json_encode($report),
-                            ];
+                            $incident = new Incident();
+                            $incident->source      = config("{$this->configBase}.collector.name");
+                            $incident->source_id   = false;
+                            $incident->ip          = $report['ip'];
+                            $incident->domain      = false;
+                            $incident->uri         = false;
+                            $incident->class       = config(
+                                "{$this->configBase}.feeds.{$this->feedName}.class"
+                            );
+                            $incident->type        = config(
+                                "{$this->configBase}.feeds.{$this->feedName}.type"
+                            );
+                            /*
+                             * This prevents multiple events on the same day. So info
+                             * blob has a scan time and this a report time
+                             */
+                            $incident->timestamp   = strtotime('0:00');
+                            $incident->information = json_encode($report);
+
+                            $this->events[] = $incident;
                         }
                     }
                 }
