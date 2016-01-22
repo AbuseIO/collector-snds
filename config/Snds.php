@@ -11,7 +11,7 @@ return [
 
     'feeds' => [
         'E-mail address harvesting' => [
-            'class'     => 'Harvesting',
+            'class'     => 'HARVESTING',
             'type'      => 'Abuse',
             'enabled'   => true,
             'fields'    => [
@@ -26,7 +26,7 @@ return [
             ]
         ],
         'Symantec Brightmail' => [
-            'class'     => 'RBL Listed',
+            'class'     => 'RBL_LISTED',
             'type'      => 'Abuse',
             'enabled'   => true,
             'fields'    => [
@@ -41,7 +41,7 @@ return [
             ]
         ],
         'SpamHaus SBL/XBL' => [
-            'class'     => 'RBL Listed',
+            'class'     => 'RBL_LISTED',
             'type'      => 'Abuse',
             'enabled'   => true,
             'fields'    => [
