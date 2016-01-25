@@ -12,7 +12,7 @@ return [
     'feeds' => [
         'E-mail address harvesting' => [
             'class'     => 'HARVESTING',
-            'type'      => 'Abuse',
+            'type'      => 'ABUSE',
             'enabled'   => true,
             'fields'    => [
                 'first_ip',
@@ -27,7 +27,7 @@ return [
         ],
         'Symantec Brightmail' => [
             'class'     => 'RBL_LISTED',
-            'type'      => 'Abuse',
+            'type'      => 'ABUSE',
             'enabled'   => true,
             'fields'    => [
                 'first_ip',
@@ -42,7 +42,7 @@ return [
         ],
         'SpamHaus SBL/XBL' => [
             'class'     => 'RBL_LISTED',
-            'type'      => 'Abuse',
+            'type'      => 'ABUSE',
             'enabled'   => true,
             'fields'    => [
                 'first_ip',
@@ -57,7 +57,7 @@ return [
         ],
         'Blocked due to user complaints or other evidence of spamming' => [
             'class'     => 'SPAM',
-            'type'      => 'Abuse',
+            'type'      => 'ABUSE',
             'enabled'   => true,
             'fields'    => [
                 'first_ip',
