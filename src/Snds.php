@@ -108,7 +108,6 @@ class Snds extends Collector
                             $incident->source_id   = false;
                             $incident->ip          = $report['ip'];
                             $incident->domain      = false;
-                            $incident->uri         = false;
                             $incident->class       = config(
                                 "{$this->configBase}.feeds.{$this->feedName}.class"
                             );
