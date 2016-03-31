@@ -6,7 +6,6 @@ use AbuseIO\Models\Incident;
 use GuzzleHttp;
 use Ddeboer\DataImport\Reader;
 use SplFileObject;
-use ICF;
 
 /**
  * Class Snds
@@ -93,12 +92,12 @@ class Snds extends Collector
 
             if ($this->isKnownFeed() && $this->isEnabledFeed()) {
 
-                $firstIP = ICF::InetPtoi($report['first_ip']);
-                $lastIP = ICF::InetPtoi($report['last_ip']);
+                $firstIP = inetPtoi($report['first_ip']);
+                $lastIP = inetPtoi($report['last_ip']);
 
                 if (!empty($firstIP) && !empty($lastIP) && $firstIP <= $lastIP) {
                     for ($x = $firstIP; $x <= $lastIP; $x++) {
-                        $report['ip'] = ICF::inetItop($x);
+                        $report['ip'] = inetItop($x);
 
                         if ($this->hasRequiredFields($report) === true) {
                             $report = $this->applyFilters($report);
