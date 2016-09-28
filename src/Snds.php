@@ -87,8 +87,16 @@ class Snds extends Collector
             ]
         );
 
+
         foreach ($csvReports as $report) {
-            $this->feedName = $report['feed'];
+            $this->feedName = 'unknown';
+
+            // If report type is an alias, get the real type
+            foreach (config("{$this->configBase}.collector.aliasses") as $alias => $real) {
+                if ($report['feed'] == $alias) {
+                    $this->feedName = $real;
+                }
+            }
 
             if ($this->isKnownFeed() && $this->isEnabledFeed()) {
 

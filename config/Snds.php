@@ -7,10 +7,17 @@ return [
         'enabled'       => false,
         'location'      => 'https://postmaster.live.com/snds/ipStatus.aspx',
         'key'           => '',
+
+        'aliasses'        => [
+            'E-mail address harvesting' => 'detected_harvesting',
+            'Symantec Brightmail'       => 'symantec_rbl',
+            'SpamHaus SBL/XBL'          => 'spamhaus_rbl',
+            'Blocked due to user complaints or other evidence of spamming' => 'user_complaints',
+        ]
     ],
 
     'feeds' => [
-        'E-mail address harvesting' => [
+        'detected_harvesting' => [
             'class'     => 'HARVESTING',
             'type'      => 'ABUSE',
             'enabled'   => true,
@@ -25,7 +32,7 @@ return [
                 'last_ip',
             ]
         ],
-        'Symantec Brightmail' => [
+        'symantec_rbl' => [
             'class'     => 'RBL_LISTED',
             'type'      => 'ABUSE',
             'enabled'   => true,
@@ -40,7 +47,7 @@ return [
                 'last_ip',
             ]
         ],
-        'SpamHaus SBL/XBL' => [
+        'spamhaus_rbl' => [
             'class'     => 'RBL_LISTED',
             'type'      => 'ABUSE',
             'enabled'   => true,
@@ -55,7 +62,7 @@ return [
                 'last_ip',
             ]
         ],
-        'Blocked due to user complaints or other evidence of spamming' => [
+        'user_complaints' => [
             'class'     => 'SPAM',
             'type'      => 'ABUSE',
             'enabled'   => true,
