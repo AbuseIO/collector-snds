@@ -1,7 +1,7 @@
 {
     "name": "abuseio/collector-snds",
     "description": "Collector addon for handling notifications from Microsoft SNDS",
-    "version": "1.4.2",
+    "version": "1.5.1",
     "keywords": ["laravel", "abuseio", "parser", "snds"],
     "homepage": "http://abuse.io",
     "type": "library",
@@ -23,7 +23,7 @@
     },
     "require": {
         "php": ">=5.5.9",
-        "abuseio/collector-common": "1.1.* || dev-master"
+        "abuseio/collector-common": "1.2.*"
     },
     "autoload": {
         "psr-4": {
