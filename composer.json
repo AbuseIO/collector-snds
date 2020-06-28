@@ -1,7 +1,7 @@
 {
     "name": "abuseio/collector-snds",
     "description": "Collector addon for handling notifications from Microsoft SNDS",
-    "version": "3.0.3",
+    "version": "3.0.4",
     "keywords": ["laravel", "abuseio", "parser", "snds"],
     "homepage": "http://abuse.io",
     "type": "library",
